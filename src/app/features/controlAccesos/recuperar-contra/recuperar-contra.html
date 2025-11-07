@@ -1,27 +1,77 @@
-<div class="login-container">
-  <div class="card login-card">
-    <div class="card-header">
-      <h3 class="card-title mb-0">Recuperar Contraseña</h3>
-      <p class="text-white-50 mb-0">Ingresa tu correo para recuperar tu contraseña</p>
+<div class="login-wrapper">
+  <div class="login-container">
+    <!-- Lado izquierdo - Welcome Section -->
+    <div class="welcome-section">
+      <div class="decorative-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+      </div>
+      
+      <div class="welcome-content">
+        <h1 class="welcome-title">¿Olvidaste tu contraseña?</h1>
+        <!-- <p class="welcome-text">
+          No te preocupes, es normal. Ingresa tu correo electrónico y te enviaremos 
+          un enlace para que puedas crear una nueva contraseña de forma segura.
+        </p> -->
+      </div>
     </div>
 
-    <div class="card-body">
-      <form class="login-form">
-        <div class="mb-3">
-          <label for="email" class="form-label">Correo Electrónico</label>
-          <input type="email" class="form-control" id="email" placeholder="tu-correo@ejemplo.com" required>
-        </div>
+    <!-- Lado derecho - Recovery Form -->
+    <div class="login-section">
+      <div class="login-form-container">
+        <h2 class="login-title">RECUPERAR CONTRASEÑA</h2>
 
-        <button type="submit" class="btn btn-primary w-100 mb-3">
-          <i class="bi bi-envelope me-2"></i>Enviar Enlace de Recuperación
-        </button>
+        <!-- Mensaje de éxito -->
+        @if (successMessage) {
+          <div class="alert alert-success">
+            <i class="bi bi-check-circle"></i>
+            <span>{{ successMessage }}</span>
+          </div>
+        }
 
-        <div class="text-center">
-          <a routerLink="/login" class="btn btn-link text-decoration-none">
-            <i class="bi bi-arrow-left me-2"></i>Volver al inicio de sesión
+        <!-- Mensaje de error -->
+        @if (errorMessage) {
+          <div class="alert alert-error">
+            <i class="bi bi-exclamation-triangle"></i>
+            <span>{{ errorMessage }}</span>
+          </div>
+        }
+
+        <form class="login-form" (ngSubmit)="onRecovery()">
+          <div class="form-group">
+            <div class="input-wrapper">
+              <i class="bi bi-envelope input-icon"></i>
+              <input 
+                type="email" 
+                class="form-input" 
+                id="email" 
+                [(ngModel)]="email"
+                name="email"
+                placeholder="tu-correo@ejemplo.com" 
+                required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-login">
+            <i class="bi bi-envelope me-2"></i>
+            ENVIAR ENLACE
+          </button>
+        </form>
+
+        <div class="back-to-login">
+          <a routerLink="/login" class="back-link">
+            <i class="bi bi-arrow-left"></i>
+            Volver al inicio de sesión
           </a>
         </div>
-      </form>
+
+        <div class="login-help">
+          <small>💡 El enlace de recuperación será enviado a tu correo registrado</small>
+        </div>
+      </div>
     </div>
   </div>
 </div>

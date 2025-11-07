@@ -10,7 +10,7 @@ export class Auth {
   // --- ESTA ES LA LÍNEA QUE SIMULA EL ROL ---
   // Cambia este valor para probar los diferentes roles: 'admin', 'coordinacion', 'alumno', 'direccion'
   // Más adelante, este valor vendrá de tu API de Login.
-  private rolActual: userRole = 'alumno'; 
+  private rolActual: userRole = 'admin'; 
 
   constructor() { }
 

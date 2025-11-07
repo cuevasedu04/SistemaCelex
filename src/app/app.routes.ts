@@ -15,16 +15,16 @@ import { ValidacionComprob } from './features/validacion-comprob/validacion-comp
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'login',
         pathMatch: 'full'
-    },
-    {
-        path: 'dashboard',
-        component: Dashboard
     },
     {
         path: 'login',
         component: Login
+    },
+    {
+        path: 'dashboard',
+        component: Dashboard
     },
     {
         path: 'recuperar-contra',
@@ -68,6 +68,6 @@ export const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: 'dashboard'
+        redirectTo: 'login'
     }
 ];

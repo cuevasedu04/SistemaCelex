@@ -1,11 +1,15 @@
-<app-header></app-header>
+@if (router.url !== '/login' && router.url !== '/recuperar-contra') {
+  <app-header></app-header>
 
-<div class="main-container">
-  
-  <app-sidebar></app-sidebar>
+  <div class="main-container">
+    
+    <app-sidebar></app-sidebar>
 
-  <main class="content-area">
-    <router-outlet></router-outlet>
-  </main>
+    <main class="content-area">
+      <router-outlet></router-outlet>
+    </main>
 
-</div>
+  </div>
+} @else {
+  <router-outlet></router-outlet>
+}

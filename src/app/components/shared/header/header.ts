@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Auth, userRole } from '../../../services/auth';
 
 @Component({
@@ -26,7 +26,10 @@ export class Header implements OnInit {
   public nombreUsuario: string = 'Usuario';
   private rolUsuario: userRole = 'admin';
 
-  constructor(private authService: Auth) { }
+  constructor(
+    private authService: Auth,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.rolUsuario = this.authService.getRole();
@@ -52,6 +55,11 @@ export class Header implements OnInit {
       'direccion': 'Director CELEX'
     };
     return nombres[this.rolUsuario] || 'Usuario';
+  }
+
+  onLogout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

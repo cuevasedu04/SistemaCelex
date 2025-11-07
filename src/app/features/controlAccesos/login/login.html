@@ -1,27 +1,188 @@
-<div class="login-container">
-  <div class="card login-card">
-    <div class="card-header">
-      <h3 class="card-title mb-0">Iniciar Sesión</h3>
-      <p class="text-muted mb-0">Bienvenido al Sistema</p>
+<div class="login-wrapper">
+  <div class="login-container">
+    <!-- Lado izquierdo - Welcome Section -->
+    <div class="welcome-section">
+      <div class="decorative-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+      </div>
+      
+      <div class="welcome-content">
+        <h1 class="welcome-title">Bienvenido al Sistema CELEX</h1>
+        <p class="welcome-text">
+          Centro de Lenguas Extranjeras - Gestiona tu información académica de manera fácil y segura.
+          Accede a tus fichas, reinscripciones y mucho más.
+        </p>
+      </div>
     </div>
 
-    <div class="card-body">
-      <form class="login-form">
-        <div class="mb-3">
-          <label for="usuario" class="form-label">Usuario (o Correo)</label>
-          <input type="text" class="form-control" id="usuario" placeholder="Ingresa tu usuario" required>
+    <!-- Lado derecho - Login/Register Form -->
+    <div class="login-section">
+      <div class="login-form-container">
+        <!-- Toggle Tabs -->
+        <div class="form-tabs">
+          <button 
+            type="button"
+            class="tab-button"
+            [class.active]="!isRegisterMode"
+            (click)="isRegisterMode = false">
+            INICIAR SESIÓN
+          </button>
+          <button 
+            type="button"
+            class="tab-button"
+            [class.active]="isRegisterMode"
+            (click)="isRegisterMode = true">
+            REGISTRARSE
+          </button>
         </div>
 
-        <div class="mb-3">
-          <label for="password" class="form-label">Contraseña</label>
-          <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required>
-        </div>
+        <!-- Mensajes -->
+        @if (errorMessage) {
+          <div class="alert alert-error">
+            <i class="bi bi-exclamation-triangle"></i>
+            <span>{{ errorMessage }}</span>
+          </div>
+        }
+        @if (successMessage) {
+          <div class="alert alert-success">
+            <i class="bi bi-check-circle"></i>
+            <span>{{ successMessage }}</span>
+          </div>
+        }
 
-        <div class="d-flex justify-content-between align-items-center">
-          <a routerLink="/recuperar-contra" class="btn btn-link text-decoration-none">¿Olvidaste tu contraseña?</a>
-          <button type="submit" class="btn btn-primary">Entrar</button>
-        </div>
-      </form>
+        <!-- Login Form -->
+        @if (!isRegisterMode) {
+          <form class="login-form" (ngSubmit)="onLogin()">
+            <div class="form-group">
+              <div class="input-wrapper">
+                <i class="bi bi-person input-icon"></i>
+                <input 
+                  type="text" 
+                  class="form-input" 
+                  id="usuario" 
+                  [(ngModel)]="usuario"
+                  name="usuario"
+                  placeholder="Usuario o correo electrónico" 
+                  required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-wrapper">
+                <i class="bi bi-lock input-icon"></i>
+                <input 
+                  type="password" 
+                  class="form-input" 
+                  id="password" 
+                  [(ngModel)]="password"
+                  name="password"
+                  placeholder="Contraseña" 
+                  required>
+              </div>
+            </div>
+
+            <div class="form-options">
+              <label class="remember-checkbox">
+                <input type="checkbox">
+                <span>Recordar</span>
+              </label>
+              <a routerLink="/recuperar-contra" class="forgot-link">
+                ¿Olvidaste tu contraseña?
+              </a>
+            </div>
+
+            <button type="submit" class="btn-login">
+              INGRESAR
+            </button>
+
+            <div class="login-help">
+              <small>💡 Usuarios de prueba: admin, coordinacion, direccion, alumno | Contraseña: demo</small>
+            </div>
+          </form>
+        }
+
+        <!-- Register Form -->
+        @if (isRegisterMode) {
+          <form class="login-form" (ngSubmit)="onRegister()">
+            <div class="form-group">
+              <div class="input-wrapper">
+                <i class="bi bi-person input-icon"></i>
+                <input 
+                  type="text" 
+                  class="form-input" 
+                  [(ngModel)]="registerData.nombre"
+                  name="nombre"
+                  placeholder="Nombre completo" 
+                  required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-wrapper">
+                <i class="bi bi-envelope input-icon"></i>
+                <input 
+                  type="email" 
+                  class="form-input" 
+                  [(ngModel)]="registerData.email"
+                  name="email"
+                  placeholder="Correo electrónico" 
+                  required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-wrapper">
+                <i class="bi bi-person-badge input-icon"></i>
+                <input 
+                  type="text" 
+                  class="form-input" 
+                  [(ngModel)]="registerData.usuario"
+                  name="usuarioRegistro"
+                  placeholder="Nombre de usuario" 
+                  required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-wrapper">
+                <i class="bi bi-lock input-icon"></i>
+                <input 
+                  type="password" 
+                  class="form-input" 
+                  [(ngModel)]="registerData.password"
+                  name="passwordRegistro"
+                  placeholder="Contraseña" 
+                  required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-wrapper">
+                <i class="bi bi-lock-fill input-icon"></i>
+                <input 
+                  type="password" 
+                  class="form-input" 
+                  [(ngModel)]="registerData.confirmPassword"
+                  name="confirmPassword"
+                  placeholder="Confirmar contraseña" 
+                  required>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-login">
+              REGISTRARSE
+            </button>
+
+            <div class="login-help">
+              <small>Al registrarte, aceptas nuestros términos y condiciones</small>
+            </div>
+          </form>
+        }
+      </div>
     </div>
   </div>
 </div>
