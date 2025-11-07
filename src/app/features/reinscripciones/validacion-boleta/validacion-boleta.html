@@ -10,10 +10,10 @@
   <!-- Filtros -->
   <div class="row mb-3">
     <div class="col-md-4">
-      <input type="text" class="form-control" placeholder="Buscar alumno...">
+      <input type="text" class="form-control" placeholder="Buscar alumno..." [(ngModel)]="filtroNombre" name="filtroNombre">
     </div>
     <div class="col-md-3">
-      <select class="form-select">
+      <select class="form-select" [(ngModel)]="filtroNivel" name="filtroNivel">
         <option value="">Todos los niveles</option>
         <option>Básico 1</option>
         <option>Básico 2</option>
@@ -24,7 +24,7 @@
       </select>
     </div>
     <div class="col-md-3">
-      <select class="form-select">
+      <select class="form-select" [(ngModel)]="filtroEstado" name="filtroEstado">
         <option value="">Todos los estados</option>
         <option>Pendiente</option>
         <option>Aprobado</option>
@@ -52,7 +52,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let alumno of alumnos">
+                <tr *ngFor="let alumno of alumnosFiltrados()">
                   <td>{{ alumno.nombre }}</td>
                   <td>{{ alumno.nivelAnterior }}</td>
                   <td>{{ alumno.nivelSolicitado }}</td>

@@ -5,14 +5,15 @@ import { FormsModule } from '@angular/forms';
 @Component({
   standalone: true,
   selector: 'app-validacion-boleta',
-  imports: [
-    CommonModule,
-    FormsModule
-  ],
+  imports: [CommonModule, FormsModule],
   templateUrl: './validacion-boleta.html',
   styles: ``,
 })
 export class ValidacionBoleta {
+  filtroNombre = '';
+  filtroNivel = '';
+  filtroEstado = '';
+
   alumnos = [
     {
       nombre: 'Carlos Hernández',
@@ -44,8 +45,16 @@ export class ValidacionBoleta {
 
   selectedAlumno: any = null;
 
+  alumnosFiltrados() {
+    return this.alumnos.filter(alumno =>
+      alumno.nombre.toLowerCase().includes(this.filtroNombre.toLowerCase()) &&
+      (this.filtroNivel === '' || alumno.nivelSolicitado === this.filtroNivel) &&
+      (this.filtroEstado === '' || alumno.estado === this.filtroEstado)
+    );
+  }
+
   verBoleta(alumno: any) {
-    this.selectedAlumno = alumno;
+    this.selectedAlumno = { ...alumno };
   }
 
   aprobarAlumno(alumno: any) {
