@@ -1,4 +1,5 @@
-<div class="container-fluid">
+<div class="container-fluid mt-4">
+  <!-- Encabezado -->
   <div class="row mb-4">
     <div class="col-12">
       <h2 class="fw-bold">Validación de Boletas</h2>
@@ -6,6 +7,7 @@
     </div>
   </div>
 
+  <!-- Filtros -->
   <div class="row mb-3">
     <div class="col-md-4">
       <input type="text" class="form-control" placeholder="Buscar alumno...">
@@ -31,13 +33,14 @@
     </div>
   </div>
 
+  <!-- Tabla -->
   <div class="row">
     <div class="col-12">
       <div class="card border-0 shadow-sm">
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover">
-              <thead>
+            <table class="table table-hover align-middle">
+              <thead class="table-light">
                 <tr>
                   <th>Alumno</th>
                   <th>Nivel Anterior</th>
@@ -49,35 +52,39 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Carlos Hernández</td>
-                  <td>Básico 1</td>
-                  <td>Básico 2</td>
-                  <td><span class="badge bg-success">85.5</span></td>
-                  <td>01/11/2025</td>
-                  <td><span class="badge bg-warning">Pendiente</span></td>
+                <tr *ngFor="let alumno of alumnos">
+                  <td>{{ alumno.nombre }}</td>
+                  <td>{{ alumno.nivelAnterior }}</td>
+                  <td>{{ alumno.nivelSolicitado }}</td>
+                  <td><span class="badge bg-success">{{ alumno.promedio }}</span></td>
+                  <td>{{ alumno.fechaRegistro }}</td>
                   <td>
-                    <button class="btn btn-sm btn-primary me-1" title="Ver boleta">
+                    <span class="badge"
+                          [ngClass]="{
+                            'bg-warning text-dark': alumno.estado === 'Pendiente',
+                            'bg-success': alumno.estado === 'Aprobado',
+                            'bg-danger': alumno.estado === 'Rechazado'
+                          }">
+                      {{ alumno.estado }}
+                    </span>
+                  </td>
+                  <td>
+                    <button class="btn btn-sm btn-primary me-1"
+                            title="Ver boleta"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalVerBoleta"
+                            (click)="verBoleta(alumno)">
                       <i class="bi bi-eye"></i>
                     </button>
-                    <button class="btn btn-sm btn-success me-1" title="Aprobar">
+                    <button class="btn btn-sm btn-success me-1"
+                            title="Aprobar"
+                            (click)="aprobarAlumno(alumno)">
                       <i class="bi bi-check"></i>
                     </button>
-                    <button class="btn btn-sm btn-danger" title="Rechazar">
+                    <button class="btn btn-sm btn-danger"
+                            title="Rechazar"
+                            (click)="rechazarAlumno(alumno)">
                       <i class="bi bi-x"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Ana Martínez</td>
-                  <td>Intermedio 1</td>
-                  <td>Intermedio 2</td>
-                  <td><span class="badge bg-success">92.0</span></td>
-                  <td>30/10/2025</td>
-                  <td><span class="badge bg-success">Aprobado</span></td>
-                  <td>
-                    <button class="btn btn-sm btn-primary" title="Ver boleta">
-                      <i class="bi bi-eye"></i>
                     </button>
                   </td>
                 </tr>
@@ -85,6 +92,47 @@
             </table>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Ver Boleta -->
+<div class="modal fade" id="modalVerBoleta" tabindex="-1" aria-labelledby="modalVerBoletaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="modalVerBoletaLabel">Revisar Documento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body" *ngIf="selectedAlumno">
+        <p><strong>Alumno:</strong> {{ selectedAlumno.nombre }}</p>
+        <p><strong>Matrícula:</strong> {{ selectedAlumno.matricula }}</p>
+        <p><strong>Tipo de Documento:</strong> Boleta de Calificaciones</p>
+        <p><strong>Archivo:</strong> {{ selectedAlumno.archivo }}</p>
+        <p><strong>Fecha de Envío:</strong> {{ selectedAlumno.fechaEnvio }}</p>
+
+        <div class="text-center border rounded p-3 mb-3">
+          <i class="bi bi-file-earmark-pdf fs-1 text-secondary"></i>
+          <p class="mt-2">Vista previa del documento</p>
+          <a [href]="selectedAlumno.archivoUrl" class="text-decoration-none" target="_blank">
+            {{ selectedAlumno.archivo }}
+          </a>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Observaciones / Motivo de Rechazo</label>
+          <textarea class="form-control" rows="3" [(ngModel)]="selectedAlumno.observaciones"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="rechazarAlumno(selectedAlumno)" data-bs-dismiss="modal">
+          <i class="bi bi-x-circle"></i> Rechazar
+        </button>
+        <button type="button" class="btn btn-success" (click)="aprobarAlumno(selectedAlumno)" data-bs-dismiss="modal">
+          <i class="bi bi-check-circle"></i> Aprobar
+        </button>
       </div>
     </div>
   </div>
