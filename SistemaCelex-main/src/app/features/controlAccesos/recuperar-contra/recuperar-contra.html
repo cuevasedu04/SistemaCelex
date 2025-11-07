@@ -1,0 +1,27 @@
+<div class="login-container">
+  <div class="card login-card">
+    <div class="card-header">
+      <h3 class="card-title mb-0">Recuperar Contraseña</h3>
+      <p class="text-white-50 mb-0">Ingresa tu correo para recuperar tu contraseña</p>
+    </div>
+
+    <div class="card-body">
+      <form class="login-form">
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-control" id="email" placeholder="tu-correo@ejemplo.com" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 mb-3">
+          <i class="bi bi-envelope me-2"></i>Enviar Enlace de Recuperación
+        </button>
+
+        <div class="text-center">
+          <a routerLink="/login" class="btn btn-link text-decoration-none">
+            <i class="bi bi-arrow-left me-2"></i>Volver al inicio de sesión
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

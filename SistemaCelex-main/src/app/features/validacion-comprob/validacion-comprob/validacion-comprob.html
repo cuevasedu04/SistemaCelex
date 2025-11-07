@@ -1,0 +1,89 @@
+<div class="container-fluid">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h2 class="fw-bold">Validación de Comprobantes</h2>
+      <p class="text-muted">Revisa y valida los comprobantes de pago</p>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <input type="text" class="form-control" placeholder="Buscar alumno...">
+    </div>
+    <div class="col-md-3">
+      <select class="form-select">
+        <option value="">Todos los tipos</option>
+        <option>Inscripción</option>
+        <option>Colegiatura</option>
+        <option>Examen</option>
+        <option>Material</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <select class="form-select">
+        <option value="">Todos los estados</option>
+        <option>Pendiente</option>
+        <option>Aprobado</option>
+        <option>Rechazado</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Alumno</th>
+                  <th>Tipo</th>
+                  <th>Monto</th>
+                  <th>Referencia</th>
+                  <th>Fecha</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Juan Pérez López</td>
+                  <td><span class="badge bg-info">Inscripción</span></td>
+                  <td>$1,500.00</td>
+                  <td>REF-001234</td>
+                  <td>02/11/2025</td>
+                  <td><span class="badge bg-warning">Pendiente</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-primary me-1" title="Ver comprobante">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                    <button class="btn btn-sm btn-success me-1" title="Aprobar">
+                      <i class="bi bi-check"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger" title="Rechazar">
+                      <i class="bi bi-x"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>María García Ruiz</td>
+                  <td><span class="badge bg-success">Colegiatura</span></td>
+                  <td>$800.00</td>
+                  <td>REF-001235</td>
+                  <td>01/11/2025</td>
+                  <td><span class="badge bg-success">Aprobado</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-primary" title="Ver comprobante">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

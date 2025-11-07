@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h2 class="fw-bold">Asignar Grupos</h2>
+      <p class="text-muted">Asigna alumnos a grupos de idiomas</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4 mb-4">
+      <div class="card border-0 shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">Buscar Alumno</h5>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label for="buscarAlumno" class="form-label">Número de Control o Nombre</label>
+            <input type="text" class="form-control" id="buscarAlumno" placeholder="Buscar alumno...">
+          </div>
+          <button class="btn btn-primary w-100">
+            <i class="bi bi-search me-2"></i>Buscar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-8">
+      <div class="card border-0 shadow-sm">
+        <div class="card-header bg-white">
+          <h5 class="mb-0">Grupos Disponibles</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Grupo</th>
+                  <th>Nivel</th>
+                  <th>Horario</th>
+                  <th>Cupo</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>A1-001</td>
+                  <td>Básico 1</td>
+                  <td>Lun-Mie 7:00-9:00</td>
+                  <td><span class="badge bg-success">15/25</span></td>
+                  <td><button class="btn btn-sm btn-primary">Asignar</button></td>
+                </tr>
+                <tr>
+                  <td>A2-002</td>
+                  <td>Básico 2</td>
+                  <td>Mar-Jue 14:00-16:00</td>
+                  <td><span class="badge bg-warning">22/25</span></td>
+                  <td><button class="btn btn-sm btn-primary">Asignar</button></td>
+                </tr>
+                <tr>
+                  <td>B1-003</td>
+                  <td>Intermedio 1</td>
+                  <td>Vie 16:00-18:00</td>
+                  <td><span class="badge bg-danger">25/25</span></td>
+                  <td><button class="btn btn-sm btn-secondary" disabled>Lleno</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

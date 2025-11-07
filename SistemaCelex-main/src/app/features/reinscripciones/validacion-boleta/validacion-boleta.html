@@ -1,0 +1,91 @@
+<div class="container-fluid">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h2 class="fw-bold">Validación de Boletas</h2>
+      <p class="text-muted">Valida las boletas de reinscripción</p>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <input type="text" class="form-control" placeholder="Buscar alumno...">
+    </div>
+    <div class="col-md-3">
+      <select class="form-select">
+        <option value="">Todos los niveles</option>
+        <option>Básico 1</option>
+        <option>Básico 2</option>
+        <option>Intermedio 1</option>
+        <option>Intermedio 2</option>
+        <option>Avanzado 1</option>
+        <option>Avanzado 2</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <select class="form-select">
+        <option value="">Todos los estados</option>
+        <option>Pendiente</option>
+        <option>Aprobado</option>
+        <option>Rechazado</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Alumno</th>
+                  <th>Nivel Anterior</th>
+                  <th>Nivel Solicitado</th>
+                  <th>Promedio</th>
+                  <th>Fecha Registro</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Carlos Hernández</td>
+                  <td>Básico 1</td>
+                  <td>Básico 2</td>
+                  <td><span class="badge bg-success">85.5</span></td>
+                  <td>01/11/2025</td>
+                  <td><span class="badge bg-warning">Pendiente</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-primary me-1" title="Ver boleta">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                    <button class="btn btn-sm btn-success me-1" title="Aprobar">
+                      <i class="bi bi-check"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger" title="Rechazar">
+                      <i class="bi bi-x"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ana Martínez</td>
+                  <td>Intermedio 1</td>
+                  <td>Intermedio 2</td>
+                  <td><span class="badge bg-success">92.0</span></td>
+                  <td>30/10/2025</td>
+                  <td><span class="badge bg-success">Aprobado</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-primary" title="Ver boleta">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

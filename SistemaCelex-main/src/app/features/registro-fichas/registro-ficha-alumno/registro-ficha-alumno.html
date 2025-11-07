@@ -1,0 +1,92 @@
+<div class="container-fluid">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h2 class="fw-bold">Registro de Ficha del Alumno</h2>
+      <p class="text-muted">Completa tu información para el registro</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body p-4">
+          <form>
+            <!-- Datos Personales -->
+            <h5 class="mb-3 text-primary">
+              <i class="bi bi-person me-2"></i>Datos Personales
+            </h5>
+            
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="nombre" class="form-label">Nombre(s)</label>
+                <input type="text" class="form-control" id="nombre" required>
+              </div>
+              <div class="col-md-6">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="numControl" class="form-label">Número de Control</label>
+                <input type="text" class="form-control" id="numControl" required>
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" required>
+              </div>
+            </div>
+
+            <!-- Información Académica -->
+            <h5 class="mb-3 mt-4 text-primary">
+              <i class="bi bi-book me-2"></i>Información Académica
+            </h5>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="carrera" class="form-label">Carrera</label>
+                <select class="form-select" id="carrera" required>
+                  <option value="">Selecciona...</option>
+                  <option>Ingeniería en Sistemas</option>
+                  <option>Ingeniería Industrial</option>
+                  <option>Contador Público</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="semestre" class="form-label">Semestre</label>
+                <select class="form-select" id="semestre" required>
+                  <option value="">Selecciona...</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Documentos -->
+            <h5 class="mb-3 mt-4 text-primary">
+              <i class="bi bi-file-earmark-arrow-up me-2"></i>Documentos
+            </h5>
+
+            <div class="mb-3">
+              <label for="documento" class="form-label">Subir Documentos (PDF)</label>
+              <input type="file" class="form-control" id="documento" accept=".pdf" multiple>
+              <small class="text-muted">Tamaño máximo: 5MB por archivo</small>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2 mt-4">
+              <button type="button" class="btn btn-secondary">Cancelar</button>
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-save me-2"></i>Guardar Ficha
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

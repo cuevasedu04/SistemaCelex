@@ -1,0 +1,166 @@
+<div class="container-fluid">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h2 class="fw-bold">Gestión de Usuarios</h2>
+      <p class="text-muted">Administra los usuarios del sistema</p>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-8">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNuevoUsuario">
+        <i class="bi bi-person-plus me-2"></i>Nuevo Usuario
+      </button>
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control" placeholder="Buscar usuario...">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Usuario</th>
+                  <th>Nombre Completo</th>
+                  <th>Email</th>
+                  <th>Rol</th>
+                  <th>Estado</th>
+                  <th>Último Acceso</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>admin001</td>
+                  <td>Admin Sistema</td>
+                  <td>admin@celex.edu.mx</td>
+                  <td><span class="badge bg-danger">Admin</span></td>
+                  <td><span class="badge bg-success">Activo</span></td>
+                  <td>03/11/2025 09:30</td>
+                  <td>
+                    <button class="btn btn-sm btn-warning me-1" title="Editar">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger" title="Desactivar">
+                      <i class="bi bi-toggle-off"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>coord001</td>
+                  <td>María López García</td>
+                  <td>maria.lopez@celex.edu.mx</td>
+                  <td><span class="badge bg-warning">Coordinación</span></td>
+                  <td><span class="badge bg-success">Activo</span></td>
+                  <td>03/11/2025 08:15</td>
+                  <td>
+                    <button class="btn btn-sm btn-warning me-1" title="Editar">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger" title="Desactivar">
+                      <i class="bi bi-toggle-off"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>20230001</td>
+                  <td>Juan Pérez López</td>
+                  <td>juan.perez@alumno.edu.mx</td>
+                  <td><span class="badge bg-info">Alumno</span></td>
+                  <td><span class="badge bg-success">Activo</span></td>
+                  <td>02/11/2025 16:45</td>
+                  <td>
+                    <button class="btn btn-sm btn-warning me-1" title="Editar">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger" title="Desactivar">
+                      <i class="bi bi-toggle-off"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>dir001</td>
+                  <td>Carlos Hernández Ruiz</td>
+                  <td>director@celex.edu.mx</td>
+                  <td><span class="badge bg-primary">Dirección</span></td>
+                  <td><span class="badge bg-success">Activo</span></td>
+                  <td>01/11/2025 14:20</td>
+                  <td>
+                    <button class="btn btn-sm btn-warning me-1" title="Editar">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger" title="Desactivar">
+                      <i class="bi bi-toggle-off"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Nuevo Usuario -->
+<div class="modal fade" id="modalNuevoUsuario" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Nuevo Usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="usuario" class="form-label">Usuario</label>
+            <input type="text" class="form-control" id="usuario" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="nombreCompleto" class="form-label">Nombre Completo</label>
+            <input type="text" class="form-control" id="nombreCompleto" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="emailUsuario" class="form-label">Email</label>
+            <input type="email" class="form-control" id="emailUsuario" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="password" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="confirmarPassword" class="form-label">Confirmar Contraseña</label>
+            <input type="password" class="form-control" id="confirmarPassword" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="rolUsuario" class="form-label">Rol</label>
+            <select class="form-select" id="rolUsuario" required>
+              <option value="">Selecciona un rol...</option>
+              <option value="admin">Administrador</option>
+              <option value="coordinacion">Coordinación</option>
+              <option value="direccion">Dirección</option>
+              <option value="alumno">Alumno</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">
+          <i class="bi bi-save me-2"></i>Guardar Usuario
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

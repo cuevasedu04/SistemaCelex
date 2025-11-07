@@ -1,0 +1,172 @@
+<div class="sidebar bg-dark vh-100 p-3">
+  <div class="text-white mb-4">
+    <h5 class="mb-1">Sistema CELEX</h5>
+    <small class="text-muted">{{ getRoleName() }}</small>
+  </div>
+
+  <nav class="nav flex-column">
+    <!-- Dashboard - Todos los roles -->
+    <a routerLink="/dashboard" routerLinkActive="active" class="nav-link text-white">
+      <i class="bi bi-house-door me-2"></i>
+      Inicio
+    </a>
+
+    <!-- ADMIN - Acceso Total -->
+    @if (rolUsuario === 'admin') {
+      <div class="nav-section mt-3">
+        <h6 class="text-muted text-uppercase px-3 mb-2">Gestión de Usuarios</h6>
+        <a routerLink="/crud-usuarios" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-person-gear me-2"></i>
+          CRUD Usuarios
+        </a>
+      </div>
+
+      <div class="nav-section mt-3">
+        <h6 class="text-muted text-uppercase px-3 mb-2">Registro de Fichas</h6>
+        <a routerLink="/registro-ficha-alumno" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-file-earmark-text me-2"></i>
+          Registro Ficha Alumno
+        </a>
+        <a routerLink="/validacion-doc" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-check-circle me-2"></i>
+          Validación Documentos
+        </a>
+      </div>
+
+      <div class="nav-section mt-3">
+        <h6 class="text-muted text-uppercase px-3 mb-2">Comprobantes</h6>
+        <a routerLink="/registro-comprob" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-receipt me-2"></i>
+          Registro Comprobante
+        </a>
+        <a routerLink="/validacion-comprob" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-check2-square me-2"></i>
+          Validación Comprobante
+        </a>
+      </div>
+
+      <div class="nav-section mt-3">
+        <h6 class="text-muted text-uppercase px-3 mb-2">Reinscripciones</h6>
+        <a routerLink="/registro-boleta" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-card-checklist me-2"></i>
+          Registro Boleta
+        </a>
+        <a routerLink="/validacion-boleta" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-clipboard-check me-2"></i>
+          Validación Boleta
+        </a>
+      </div>
+
+      <div class="nav-section mt-3">
+        <h6 class="text-muted text-uppercase px-3 mb-2">Grupos</h6>
+        <a routerLink="/asignar-grupo" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-people me-2"></i>
+          Asignar Grupos
+        </a>
+      </div>
+
+      <div class="nav-section mt-3">
+        <h6 class="text-muted text-uppercase px-3 mb-2">Reportes</h6>
+        <a routerLink="/generar-reporte" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-graph-up me-2"></i>
+          Generar Reportes
+        </a>
+      </div>
+    }
+
+    <!-- COORDINACIÓN -->
+    @if (rolUsuario === 'coordinacion') {
+      
+
+      <div class="nav-section mt-3">
+        <h6 class="text-muted text-uppercase px-3 mb-2">Registro de Fichas</h6>
+        <a routerLink="/validacion-doc" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-check-circle me-2"></i>
+          Validación Documentos
+        </a>
+      </div>
+
+      <div class="nav-section mt-3">
+        <h6 class="text-muted text-uppercase px-3 mb-2">Comprobantes</h6>
+        <a routerLink="/validacion-comprob" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-check2-square me-2"></i>
+          Validación Comprobante
+        </a>
+      </div>
+
+      <div class="nav-section mt-3">
+        <h6 class="text-muted text-uppercase px-3 mb-2">Reinscripciones</h6>
+        <a routerLink="/validacion-boleta" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-clipboard-check me-2"></i>
+          Validación Boleta
+        </a>
+      </div>
+
+      <div class="nav-section mt-3">
+        <h6 class="text-muted text-uppercase px-3 mb-2">Grupos</h6>
+        <a routerLink="/asignar-grupo" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-people me-2"></i>
+          Asignar Grupos
+        </a>
+      </div>
+
+      <div class="nav-section mt-3">
+        <h6 class="text-muted text-uppercase px-3 mb-2">Datos Administrativos</h6>
+        <a routerLink="/modificar-datos-alumnos" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-pencil-square me-2"></i>
+          Modificar Datos Alumnos
+        </a>
+        <a routerLink="/registro-niveles" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-list-ol me-2"></i>
+          Registro de Niveles
+        </a>
+      </div>
+    }
+
+    <!-- ALUMNO -->
+    @if (rolUsuario === 'alumno') {
+      <div class="nav-section mt-3">
+        <h6 class="text-muted text-uppercase px-3 mb-2">Mis Registros</h6>
+        <a routerLink="/registro-ficha-alumno" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-file-earmark-text me-2"></i>
+          Registro Ficha Alumno
+        </a>
+        <a routerLink="/registro-comprob" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-receipt me-2"></i>
+          Registro Comprobante
+        </a>
+        <a routerLink="/registro-boleta" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-card-checklist me-2"></i>
+          Registro Boleta
+        </a>
+      </div>
+    }
+
+    <!-- DIRECCIÓN -->
+    @if (rolUsuario === 'direccion') {
+      <div class="nav-section mt-3">
+        <h6 class="text-muted text-uppercase px-3 mb-2">Gestión de Usuarios</h6>
+        <a routerLink="/crud-usuarios" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-person-gear me-2"></i>
+          CRUD Usuarios
+        </a>
+      </div>
+
+      <div class="nav-section mt-3">
+        <h6 class="text-muted text-uppercase px-3 mb-2">Reportes</h6>
+        <a routerLink="/generar-reporte" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-graph-up me-2"></i>
+          Consultar Reportes
+        </a>
+      </div>
+
+      <div class="nav-section mt-3">
+        <h6 class="text-muted text-uppercase px-3 mb-2">Consultas</h6>
+        <a routerLink="/consultas-tiempo-real" routerLinkActive="active" class="nav-link text-white">
+          <i class="bi bi-clock-history me-2"></i>
+          Consultas en Tiempo Real
+        </a>
+      </div>
+    }
+  </nav>
+</div>
