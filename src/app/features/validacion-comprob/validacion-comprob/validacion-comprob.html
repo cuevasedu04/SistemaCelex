@@ -1,23 +1,15 @@
-<div class="container-fluid">
-  <div class="row mb-4">
+<div class="container-fluid mt-4">
+  <div class="row mb-3">
     <div class="col-12">
-      <h2 class="fw-bold">Validación de Comprobantes</h2>
-      <p class="text-muted">Revisa y valida los comprobantes de pago</p>
+      <h3 class="fw-bold">Documentos por Validar</h3>
+      <p class="text-muted">Revisa y valida los comprobantes de pago enviados por los alumnos.</p>
     </div>
   </div>
 
+  <!-- Filtros -->
   <div class="row mb-3">
     <div class="col-md-4">
       <input type="text" class="form-control" placeholder="Buscar alumno...">
-    </div>
-    <div class="col-md-3">
-      <select class="form-select">
-        <option value="">Todos los tipos</option>
-        <option>Inscripción</option>
-        <option>Colegiatura</option>
-        <option>Examen</option>
-        <option>Material</option>
-      </select>
     </div>
     <div class="col-md-3">
       <select class="form-select">
@@ -29,60 +21,84 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-12">
-      <div class="card border-0 shadow-sm">
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Alumno</th>
-                  <th>Tipo</th>
-                  <th>Monto</th>
-                  <th>Referencia</th>
-                  <th>Fecha</th>
-                  <th>Estado</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Juan Pérez López</td>
-                  <td><span class="badge bg-info">Inscripción</span></td>
-                  <td>$1,500.00</td>
-                  <td>REF-001234</td>
-                  <td>02/11/2025</td>
-                  <td><span class="badge bg-warning">Pendiente</span></td>
-                  <td>
-                    <button class="btn btn-sm btn-primary me-1" title="Ver comprobante">
-                      <i class="bi bi-eye"></i>
-                    </button>
-                    <button class="btn btn-sm btn-success me-1" title="Aprobar">
-                      <i class="bi bi-check"></i>
-                    </button>
-                    <button class="btn btn-sm btn-danger" title="Rechazar">
-                      <i class="bi bi-x"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>María García Ruiz</td>
-                  <td><span class="badge bg-success">Colegiatura</span></td>
-                  <td>$800.00</td>
-                  <td>REF-001235</td>
-                  <td>01/11/2025</td>
-                  <td><span class="badge bg-success">Aprobado</span></td>
-                  <td>
-                    <button class="btn btn-sm btn-primary" title="Ver comprobante">
-                      <i class="bi bi-eye"></i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+  <!-- Tabla de documentos -->
+  <div class="card border-0 shadow-sm">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Alumno</th>
+              <th>Matrícula</th>
+              <th>Referencia</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+              <th class="text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Juan Pérez López</td>
+              <td>A0012345</td>
+              <td>REF-001234</td>
+              <td>2025-11-02</td>
+              <td><span class="badge bg-warning text-dark">Pendiente</span></td>
+              <td class="text-center">
+                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalRevisar">
+                  <i class="bi bi-eye"></i> Revisar
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>María García Ruiz</td>
+              <td>A0012346</td>
+              <td>REF-001235</td>
+              <td>2025-11-01</td>
+              <td><span class="badge bg-success">Aprobado</span></td>
+              <td class="text-center">
+                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalRevisar">
+                  <i class="bi bi-eye"></i> Revisar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Revisar Documento -->
+<div class="modal fade" id="modalRevisar" tabindex="-1" aria-labelledby="modalRevisarLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="modalRevisarLabel">Revisar Documento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <p class="mb-1"><strong>Alumno:</strong> María García López</p>
+          <p class="mb-1"><strong>Matrícula:</strong> A0012345</p>
+          <p class="mb-1"><strong>Archivo:</strong> Comprobante_Pago_Oct2025.PDF</p>
+          <p><strong>Fecha de Envío:</strong> 2025-10-25</p>
         </div>
+
+        <div class="text-center border rounded p-3 mb-3">
+          <i class="bi bi-file-earmark-pdf fs-1 text-secondary"></i>
+          <p class="mt-2">Vista previa del documento</p>
+          <a href="#" class="text-decoration-none">Comprobante_Pago_Oct2025.PDF</a>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Observaciones / Motivo de Rechazo</label>
+          <textarea class="form-control" rows="3" placeholder="Ingrese observaciones o motivo de rechazo..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger"><i class="bi bi-x-circle"></i> Rechazar</button>
+        <button type="button" class="btn btn-success"><i class="bi bi-check-circle"></i> Aprobar</button>
       </div>
     </div>
   </div>

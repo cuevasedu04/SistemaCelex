@@ -1,64 +1,52 @@
-<div class="container-fluid">
-  <div class="row mb-4">
-    <div class="col-12">
-      <h2 class="fw-bold">Registro de Comprobante</h2>
-      <p class="text-muted">Registra tu comprobante de pago</p>
-    </div>
-  </div>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+      <div class="card border-0 shadow-sm p-4">
+        <h3 class="fw-bold text-center mb-3">Registro de Comprobante</h3>
+        <p class="text-center text-muted mb-4">Sube tu comprobante de pago para iniciar el proceso</p>
 
-  <div class="row">
-    <div class="col-lg-6 mx-auto">
-      <div class="card border-0 shadow-sm">
-        <div class="card-body p-4">
-          <form>
+        <form>
+          <!-- Monto -->
+          <div class="mb-3">
+            <label for="monto" class="form-label">Monto</label>
+            <div class="input-group">
+              <span class="input-group-text">$</span>
+              <input type="number" class="form-control" id="monto" step="0.01" required>
+            </div>
+          </div>
+
+          <!-- Fecha de pago -->
+          <div class="mb-3">
+            <label for="fechaPago" class="form-label">Fecha de Pago</label>
+            <input type="date" class="form-control" id="fechaPago" required>
+          </div>
+
+          <!-- Referencia -->
+          <div class="mb-3">
+            <label for="referencia" class="form-label">Número de Referencia</label>
+            <input type="text" class="form-control" id="referencia" placeholder="Ej: 123456789" required>
+          </div>
+
+          <!-- Zona de carga -->
+          <div class="mb-4 text-center border rounded-3 p-4 bg-light upload-box">
             <div class="mb-3">
-              <label for="tipoComprobante" class="form-label">Tipo de Comprobante</label>
-              <select class="form-select" id="tipoComprobante" required>
-                <option value="">Selecciona...</option>
-                <option>Inscripción</option>
-                <option>Colegiatura</option>
-                <option>Examen</option>
-                <option>Material</option>
-              </select>
+              <i class="bi bi-cloud-upload display-5 text-primary"></i>
             </div>
+            <p class="fw-semibold mb-2">Selecciona tu comprobante</p>
+            <input type="file" class="form-control mb-2" id="archivo" accept=".pdf,.jpg,.jpeg,.png" required>
+            <small class="text-muted d-block">Formatos aceptados: PDF, JPG, PNG (máx. 5MB)</small>
+          </div>
 
-            <div class="mb-3">
-              <label for="monto" class="form-label">Monto</label>
-              <div class="input-group">
-                <span class="input-group-text">$</span>
-                <input type="number" class="form-control" id="monto" step="0.01" required>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="fechaPago" class="form-label">Fecha de Pago</label>
-              <input type="date" class="form-control" id="fechaPago" required>
-            </div>
-
-            <div class="mb-3">
-              <label for="referencia" class="form-label">Número de Referencia</label>
-              <input type="text" class="form-control" id="referencia" placeholder="Ej: 123456789" required>
-            </div>
-
-            <div class="mb-3">
-              <label for="archivo" class="form-label">Comprobante (PDF o Imagen)</label>
-              <input type="file" class="form-control" id="archivo" accept=".pdf,.jpg,.jpeg,.png" required>
-              <small class="text-muted">Tamaño máximo: 5MB</small>
-            </div>
-
-            <div class="mb-3">
-              <label for="observaciones" class="form-label">Observaciones (Opcional)</label>
-              <textarea class="form-control" id="observaciones" rows="3"></textarea>
-            </div>
-
-            <div class="d-flex justify-content-end gap-2">
-              <button type="button" class="btn btn-secondary">Cancelar</button>
-              <button type="submit" class="btn btn-primary">
-                <i class="bi bi-upload me-2"></i>Enviar Comprobante
-              </button>
-            </div>
-          </form>
-        </div>
+          <!-- Botones -->
+          <div class="d-flex justify-content-between align-items-center">
+            <button type="button" class="btn btn-outline-secondary">
+              <i class="bi bi-arrow-left me-2"></i>Regresar
+            </button>
+            <button type="submit" class="btn btn-dark px-4 py-2">
+              <i class="bi bi-upload me-2"></i>Subir y Validar
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
