@@ -1,26 +1,19 @@
 <div class="container-fluid">
   <div class="row mb-4">
     <div class="col-12">
-      <h2 class="fw-bold">Registro de Boleta</h2>
-      <p class="text-muted">Registra tu boleta para reinscripción</p>
+      <h2 class="fw-bold">Boleta de Calificaciones</h2>
+      <p class="text-muted">Sube tu boleta de calificaciones del último semestre cursado</p>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-lg-6 mx-auto">
+    <div class="col-lg-9 mx-auto">
       <div class="card border-0 shadow-sm">
         <div class="card-body p-4">
           <form>
-            <div class="mb-3">
-              <label for="periodo" class="form-label">Periodo</label>
-              <select class="form-select" id="periodo" required>
-                <option value="">Selecciona...</option>
-                <option>Enero-Junio 2025</option>
-                <option>Julio-Diciembre 2025</option>
-              </select>
-            </div>
-
-            <div class="mb-3">
+            <div class="mb-6">
+              <div class="row">
+                               <div class="col-md-6 mb-2">
               <label for="nivel" class="form-label">Nivel a Cursar</label>
               <select class="form-select" id="nivel" required>
                 <option value="">Selecciona...</option>
@@ -33,21 +26,22 @@
               </select>
             </div>
 
-            <div class="mb-3">
+            <div class="col-md-6 mb-2">
               <label for="promedio" class="form-label">Promedio del Nivel Anterior</label>
               <input type="number" class="form-control" id="promedio" min="0" max="100" step="0.1" required>
             </div>
-
-            <div class="mb-3">
-              <label for="boleta" class="form-label">Boleta de Calificaciones (PDF)</label>
-              <input type="file" class="form-control" id="boleta" accept=".pdf" required>
-              <small class="text-muted">Sube tu boleta del nivel anterior</small>
             </div>
+              </div>
 
+          <!-- Zona de carga -->
+          <div class="mb-4 text-center border rounded-3 p-4 bg-light upload-box">
             <div class="mb-3">
-              <label for="documentosAdicionales" class="form-label">Documentos Adicionales (Opcional)</label>
-              <input type="file" class="form-control" id="documentosAdicionales" accept=".pdf,.jpg,.jpeg" multiple>
+              <i class="bi bi-cloud-upload display-5 text-primary"></i>
             </div>
+            <p class="fw-semibold mb-2">Arrastra tu archivo aquí o haz clic para seleccionar</p>
+            <input type="file" class="form-control mb-2" id="archivo" accept=".pdf,.jpg,.jpeg,.png" required>
+            <small class="text-muted d-block">Formatos aceptados: PDF, JPG, PNG (máx. 5MB)</small>
+          </div>
 
             <div class="d-flex justify-content-end gap-2">
               <button type="button" class="btn btn-secondary">Cancelar</button>
