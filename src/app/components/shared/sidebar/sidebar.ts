@@ -30,7 +30,7 @@ import { Auth, userRole } from '../../../services/auth';
     }
     
     .nav-link.active {
-      background-color: #0d6efd;
+      background-color: #999;
     }
     
     .nav-section h6 {

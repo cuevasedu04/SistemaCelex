@@ -1,130 +1,390 @@
-<div class="container-fluid">
-  <div class="row mb-4">
-    <div class="col-12">
-      <h2 class="fw-bold">Dashboard</h2>
-      <p class="text-muted">Bienvenido al Sistema CELEX</p>
+<div class="container-fluid p-4">
+  
+  <!-- Dashboard para ALUMNO -->
+  @if (rolUsuario === 'alumno') {
+    <div class="welcome-card">
+      <h2 class="fw-bold mb-3">¡Bienvenido, Alumno!</h2>
+      <p class="mb-0 fs-5">Gestiona tus trámites académicos de manera rápida y sencilla.</p>
     </div>
-  </div>
 
-  <div class="row g-4">
-    <!-- Card 1 -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <h6 class="text-muted mb-0">Total Alumnos</h6>
-            <i class="bi bi-people-fill text-primary fs-3"></i>
+    <div class="row g-4">
+      <!-- Registro de Ficha -->
+      <div class="col-md-6">
+        <div class="card module-card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start mb-3">
+              <div class="icon-wrapper bg-primary bg-opacity-10 text-primary me-3">
+                <i class="bi bi-file-earmark-person"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-2">Registro de Ficha</h4>
+                <p class="text-muted mb-0">
+                  Completa tu ficha de registro con tus datos personales y académicos. 
+                  Asegúrate de subir todos los documentos requeridos para una validación rápida.
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled text-muted small mb-0">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Datos personales</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Documentos oficiales</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Información académica</li>
+            </ul>
           </div>
-          <h2 class="fw-bold mb-0">1,234</h2>
-          <small class="text-success">
-            <i class="bi bi-arrow-up"></i> 12% vs mes anterior
-          </small>
         </div>
       </div>
-    </div>
 
-    <!-- Card 2 -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <h6 class="text-muted mb-0">Fichas Pendientes</h6>
-            <i class="bi bi-file-earmark-text text-warning fs-3"></i>
+      <!-- Registro de Comprobante -->
+      <div class="col-md-6">
+        <div class="card module-card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start mb-3">
+              <div class="icon-wrapper bg-success bg-opacity-10 text-success me-3">
+                <i class="bi bi-receipt"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-2">Comprobantes de Pago</h4>
+                <p class="text-muted mb-0">
+                  Sube tus comprobantes de pago para validar tu inscripción o reinscripción. 
+                  Recuerda que deben ser legibles y en formato PDF o imagen.
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled text-muted small mb-0">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Comprobante de inscripción</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Formato digital o escaneado</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Validación automática</li>
+            </ul>
           </div>
-          <h2 class="fw-bold mb-0">56</h2>
-          <small class="text-muted">
-            Requieren validación
-          </small>
         </div>
       </div>
-    </div>
 
-    <!-- Card 3 -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <h6 class="text-muted mb-0">Grupos Activos</h6>
-            <i class="bi bi-collection text-success fs-3"></i>
+      <!-- Reinscripciones -->
+      <div class="col-md-6">
+        <div class="card module-card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start mb-3">
+              <div class="icon-wrapper bg-warning bg-opacity-10 text-warning me-3">
+                <i class="bi bi-arrow-repeat"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-2">Reinscripciones</h4>
+                <p class="text-muted mb-0">
+                  Realiza tu proceso de reinscripción subiendo tu boleta del semestre anterior. 
+                  Mantén actualizada tu información académica para continuar tus estudios.
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled text-muted small mb-0">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Boleta del semestre anterior</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Renovación de matrícula</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Seguimiento de estatus</li>
+            </ul>
           </div>
-          <h2 class="fw-bold mb-0">28</h2>
-          <small class="text-muted">
-            Este semestre
-          </small>
         </div>
       </div>
-    </div>
 
-    <!-- Card 4 -->
-    <div class="col-md-6 col-lg-3">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <h6 class="text-muted mb-0">Comprobantes</h6>
-            <i class="bi bi-receipt text-info fs-3"></i>
-          </div>
-          <h2 class="fw-bold mb-0">342</h2>
-          <small class="text-success">
-            <i class="bi bi-check-circle"></i> 98% validados
-          </small>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tabla de Actividad Reciente -->
-  <div class="row mt-4">
-    <div class="col-12">
-      <div class="card border-0 shadow-sm">
-        <div class="card-header bg-white">
-          <h5 class="mb-0">Actividad Reciente</h5>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Alumno</th>
-                  <th>Acción</th>
-                  <th>Módulo</th>
-                  <th>Fecha</th>
-                  <th>Estado</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Juan Pérez López</td>
-                  <td>Registro de ficha</td>
-                  <td>Fichas</td>
-                  <td>Hoy, 10:30 AM</td>
-                  <td><span class="badge bg-warning">Pendiente</span></td>
-                </tr>
-                <tr>
-                  <td>María García Ruiz</td>
-                  <td>Validación de comprobante</td>
-                  <td>Comprobantes</td>
-                  <td>Hoy, 09:15 AM</td>
-                  <td><span class="badge bg-success">Aprobado</span></td>
-                </tr>
-                <tr>
-                  <td>Carlos Hernández</td>
-                  <td>Registro de boleta</td>
-                  <td>Reinscripciones</td>
-                  <td>Ayer, 04:20 PM</td>
-                  <td><span class="badge bg-success">Aprobado</span></td>
-                </tr>
-                <tr>
-                  <td>Ana Martínez</td>
-                  <td>Validación de documentos</td>
-                  <td>Fichas</td>
-                  <td>Ayer, 02:10 PM</td>
-                  <td><span class="badge bg-danger">Rechazado</span></td>
-                </tr>
-              </tbody>
-            </table>
+      <!-- Información General -->
+      <div class="col-md-6">
+        <div class="card module-card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start mb-3">
+              <div class="icon-wrapper bg-info bg-opacity-10 text-info me-3">
+                <i class="bi bi-info-circle"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-2">Información Importante</h4>
+                <p class="text-muted mb-0">
+                  Recuerda revisar constantemente el estatus de tus trámites. 
+                  Si tienes dudas, contacta con el área de coordinación.
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled text-muted small mb-0">
+              <li><i class="bi bi-clock-fill text-info me-2"></i>Horarios de atención disponibles</li>
+              <li><i class="bi bi-envelope-fill text-info me-2"></i>Notificaciones por correo</li>
+              <li><i class="bi bi-telephone-fill text-info me-2"></i>Soporte técnico</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  }
+
+  <!-- Dashboard para COORDINACIÓN -->
+  @if (rolUsuario === 'coordinacion') {
+    <div class="welcome-card">
+      <h2 class="fw-bold mb-3">Panel de Coordinación</h2>
+      <p class="mb-0 fs-5">Gestiona y valida los trámites de los alumnos de manera eficiente.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Validación de Documentos -->
+      <div class="col-md-6">
+        <div class="card module-card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start mb-3">
+              <div class="icon-wrapper bg-primary bg-opacity-10 text-primary me-3">
+                <i class="bi bi-check-circle"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-2">Validación de Documentos</h4>
+                <p class="text-muted mb-0">
+                  Revisa y valida las fichas de registro de alumnos. Verifica que toda la información 
+                  y documentación esté completa y correcta antes de aprobar.
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled text-muted small mb-0">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Revisar fichas pendientes</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Aprobar o rechazar documentos</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Agregar observaciones</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Validación de Comprobantes -->
+      <div class="col-md-6">
+        <div class="card module-card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start mb-3">
+              <div class="icon-wrapper bg-success bg-opacity-10 text-success me-3">
+                <i class="bi bi-receipt-cutoff"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-2">Validación de Comprobantes</h4>
+                <p class="text-muted mb-0">
+                  Verifica los comprobantes de pago subidos por los alumnos. 
+                  Asegúrate de que los datos coincidan con los registros del sistema.
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled text-muted small mb-0">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Verificar comprobantes</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Validar información de pago</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Gestionar rechazos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Validación de Boletas -->
+      <div class="col-md-6">
+        <div class="card module-card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start mb-3">
+              <div class="icon-wrapper bg-warning bg-opacity-10 text-warning me-3">
+                <i class="bi bi-file-earmark-check"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-2">Validación de Boletas</h4>
+                <p class="text-muted mb-0">
+                  Procesa las solicitudes de reinscripción revisando las boletas del semestre anterior. 
+                  Valida el desempeño académico para autorizar la continuidad.
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled text-muted small mb-0">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Revisar boletas</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Validar historial académico</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Aprobar reinscripciones</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Asignación de Grupos -->
+      <div class="col-md-6">
+        <div class="card module-card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start mb-3">
+              <div class="icon-wrapper bg-info bg-opacity-10 text-info me-3">
+                <i class="bi bi-people"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-2">Asignación de Grupos</h4>
+                <p class="text-muted mb-0">
+                  Organiza y asigna a los alumnos en grupos según su nivel y horario. 
+                  Mantén un control eficiente de la distribución de estudiantes.
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled text-muted small mb-0">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Crear nuevos grupos</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Asignar alumnos</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Gestionar horarios</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Dashboard para DIRECCIÓN -->
+  @if (rolUsuario === 'direccion') {
+    <div class="welcome-card">
+      <h2 class="fw-bold mb-3">Panel de Dirección</h2>
+      <p class="mb-0 fs-5">Supervisa y analiza la información general del sistema CELEX.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Generación de Reportes -->
+      <div class="col-md-12">
+        <div class="card module-card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start mb-3">
+              <div class="icon-wrapper bg-primary bg-opacity-10 text-primary me-3">
+                <i class="bi bi-file-bar-graph"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-2">Generación de Reportes</h4>
+                <p class="text-muted mb-0">
+                  Accede a reportes detallados sobre el desempeño y actividad del sistema. 
+                  Genera estadísticas de inscripciones, pagos, validaciones y más.
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled text-muted small mb-0">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Reportes de inscripciones por periodo</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Estadísticas de validaciones</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Análisis de comprobantes y pagos</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Reportes de asignación de grupos</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Exportación a Excel y PDF</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Información de Supervisión -->
+      <div class="col-md-6">
+        <div class="card module-card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start mb-3">
+              <div class="icon-wrapper bg-info bg-opacity-10 text-info me-3">
+                <i class="bi bi-graph-up"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-2">Métricas Generales</h4>
+                <p class="text-muted mb-0">
+                  Monitorea el desempeño general del sistema con métricas clave sobre 
+                  inscripciones, validaciones pendientes y actividad de usuarios.
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled text-muted small mb-0">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Total de alumnos inscritos</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Trámites pendientes</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Tasa de validación</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toma de Decisiones -->
+      <div class="col-md-6">
+        <div class="card module-card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start mb-3">
+              <div class="icon-wrapper bg-success bg-opacity-10 text-success me-3">
+                <i class="bi bi-clipboard-data"></i>
+              </div>
+              <div>
+                <h4 class="fw-bold mb-2">Análisis y Decisiones</h4>
+                <p class="text-muted mb-0">
+                  Utiliza los datos del sistema para tomar decisiones informadas sobre 
+                  recursos, personal y mejoras en los procesos administrativos.
+                </p>
+              </div>
+            </div>
+            <ul class="list-unstyled text-muted small mb-0">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Tendencias de inscripción</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Análisis de eficiencia</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Planificación estratégica</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Dashboard para ADMIN -->
+  @if (rolUsuario === 'admin') {
+    <div class="welcome-card">
+      <h2 class="fw-bold mb-3">Panel de Administración</h2>
+      <p class="mb-0 fs-5">Control total del sistema CELEX - Gestión de usuarios y acceso a todos los módulos.</p>
+    </div>
+
+    <div class="alert alert-info" role="alert">
+      <i class="bi bi-info-circle-fill me-2"></i>
+      Como administrador, tienes acceso completo a todos los módulos del sistema. 
+      Utiliza el menú lateral para navegar entre las diferentes funcionalidades.
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-12">
+        <div class="card module-card border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h4 class="fw-bold mb-3">Módulos Disponibles</h4>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-person-gear text-primary fs-4 me-3"></i>
+                  <div>
+                    <h6 class="mb-0">Gestión de Usuarios</h6>
+                    <small class="text-muted">CRUD y asignación de roles</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-file-earmark-text text-success fs-4 me-3"></i>
+                  <div>
+                    <h6 class="mb-0">Registro de Fichas</h6>
+                    <small class="text-muted">Gestión completa</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-receipt text-info fs-4 me-3"></i>
+                  <div>
+                    <h6 class="mb-0">Comprobantes</h6>
+                    <small class="text-muted">Registro y validación</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-arrow-repeat text-warning fs-4 me-3"></i>
+                  <div>
+                    <h6 class="mb-0">Reinscripciones</h6>
+                    <small class="text-muted">Boletas y validación</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-people text-danger fs-4 me-3"></i>
+                  <div>
+                    <h6 class="mb-0">Grupos</h6>
+                    <small class="text-muted">Asignación de alumnos</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-file-bar-graph text-primary fs-4 me-3"></i>
+                  <div>
+                    <h6 class="mb-0">Reportes</h6>
+                    <small class="text-muted">Análisis y estadísticas</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
 </div>
