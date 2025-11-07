@@ -1,135 +1,426 @@
 <div class="container-fluid">
   <div class="row mb-4">
     <div class="col-12">
-      <h2 class="fw-bold">Generar Reportes</h2>
-      <p class="text-muted">Genera y descarga reportes del sistema</p>
+      <h2 class="fw-bold">Reportes del Sistema</h2>
+      <p class="text-muted">Visualice y exporte reportes personalizados del sistema</p>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-lg-4 mb-4">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center p-4">
-          <i class="bi bi-people-fill text-primary" style="font-size: 3rem;"></i>
-          <h5 class="mt-3">Reporte de Alumnos</h5>
-          <p class="text-muted">Lista completa de alumnos registrados</p>
-          <button class="btn btn-primary">
-            <i class="bi bi-download me-2"></i>Descargar
-          </button>
+  <div>
+    <h2 class="h4">Generación de Reportes</h2>
+
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-alumnos-tab" data-bs-toggle="pill" data-bs-target="#pills-alumnos"
+          type="button" role="tab" aria-controls="pills-alumnos" aria-selected="true">Alumnos</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-documentos-tab" data-bs-toggle="pill" data-bs-target="#pills-documentos"
+          type="button" role="tab" aria-controls="pills-documentos" aria-selected="false">Documentos</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-grupos-tab" data-bs-toggle="pill" data-bs-target="#pills-grupos"
+          type="button" role="tab" aria-controls="pills-grupos" aria-selected="false">Grupos</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-logs-tab" data-bs-toggle="pill" data-bs-target="#pills-logs" type="button"
+          role="tab" aria-controls="pills-logs" aria-selected="false">Logs del Sistema</button>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="pills-tabContent">
+
+      <div class="tab-pane fade show active" id="pills-alumnos" role="tabpanel" aria-labelledby="pills-alumnos-tab"
+        tabindex="0">
+
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label for="filtroNivel" class="form-label">Filtrar por Nivel</label>
+            <select id="filtroNivel" class="form-select">
+              <option selected>Todos los niveles</option>
+              <option>Introductorio</option>
+              <option>Básico</option>
+              <option>Intermedio</option>
+              <option>Avanzado</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="filtroPeriodo" class="form-label">Periodo</label>
+            <select id="filtroPeriodo" class="form-select">
+              <option selected>2025-1</option>
+              <option>2024-2</option>
+              <option>2024-1</option>
+            </select>
+          </div>
         </div>
+
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr>
+              <th scope="col">Matrícula</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Nivel</th>
+              <th scope="col">Periodo</th>
+              <th scope="col">Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A001</td>
+              <td>María García</td>
+              <td>Básico</td>
+              <td>2025-1</td>
+              <td><span class="badge bg-dark">Inscrito</span></td>
+            </tr>
+            <tr>
+              <td>A002</td>
+              <td>Juan Pérez</td>
+              <td>Intermedio</td>
+              <td>2025-1</td>
+              <td><span class="badge bg-dark">Reinscrito</span></td>
+            </tr>
+            <tr>
+              <td>A003</td>
+              <td>Laura Sánchez</td>
+              <td>Avanzado</td>
+              <td>2025-1</td>
+              <td><span class="badge bg-dark">Inscrito</span></td>
+            </tr>
+            <tr>
+              <td>A004</td>
+              <td>Carlos Ruiz</td>
+              <td>Introductorio</td>
+              <td>2025-1</td>
+              <td><span class="badge bg-dark">Inscrito</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-pane fade" id="pills-documentos" role="tabpanel" aria-labelledby="pills-documentos-tab"
+        tabindex="0">
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr>
+              <th scope="col">Alumno</th>
+              <th scope="col">Documento</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Fecha</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>María García</td>
+              <td>Comprobante de pago</td>
+              <td><span class="badge bg-dark">Validado</span></td>
+              <td>2025-10-20</td>
+            </tr>
+            <tr>
+              <td>Juan Pérez</td>
+              <td>Identificación oficial</td>
+              <td><span class="badge bg-light text-dark border">Pendiente</span></td>
+              <td>2025-10-22</td>
+            </tr>
+            <tr>
+              <td>Laura Sánchez</td>
+              <td>Comprobante de pago</td>
+              <td><span class="badge bg-dark">Validado</span></td>
+              <td>2025-10-21</td>
+            </tr>
+            <tr>
+              <td>Carlos Ruiz</td>
+              <td>CURP</td>
+              <td><span class="badge bg-danger">Rechazado</span></td>
+              <td>2025-10-19</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-pane fade" id="pills-grupos" role="tabpanel" aria-labelledby="pills-grupos-tab" tabindex="0">
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr>
+              <th scope="col">Nombre del Grupo</th>
+              <th scope="col">Nivel</th>
+              <th scope="col">Profesor</th>
+              <th scope="col">Alumnos</th>
+              <th scope="col">Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Inglés Básico A</td>
+              <td>Básico</td>
+              <td>Prof. González</td>
+              <td>25</td>
+              <td><span class="badge bg-dark">Activo</span></td>
+            </tr>
+            <tr>
+              <td>Inglés Intermedio B</td>
+              <td>Intermedio</td>
+              <td>Prof. Martínez</td>
+              <td>22</td>
+              <td><span class="badge bg-dark">Activo</span></td>
+            </tr>
+            <tr>
+              <td>Inglés Avanzado A</td>
+              <td>Avanzado</td>
+              <td>Prof. López</td>
+              <td>18</td>
+              <td><span class="badge bg-dark">Activo</span></td>
+            </tr>
+            <tr>
+              <td>Francés Introductorio</td>
+              <td>Introductorio</td>
+              <td>Prof. Dupont</td>
+              <td>15</td>
+              <td><span class="badge bg-light text-dark border">Inactivo</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-pane fade" id="pills-logs" role="tabpanel" aria-labelledby="pills-logs-tab" tabindex="0">
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr>
+              <th scope="col">Fecha y Hora</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Rol</th>
+              <th scope="col">Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025-10-26 10:30</td>
+              <td>Director General</td>
+              <td><span class="badge bg-light text-dark border">Dirección</span></td>
+              <td>Creó usuario nuevo</td>
+            </tr>
+            <tr>
+              <td>2025-10-26 09:15</td>
+              <td>Ana López</td>
+              <td><span class="badge bg-light text-dark border">Coordinador</span></td>
+              <td>Validó documento</td>
+            </tr>
+            <tr>
+              <td>2025-10-25 16:45</td>
+              <td>Carlos Martínez</td>
+              <td><span class="badge bg-light text-dark border">Coordinador</span></td>
+              <td>Creó grupo nuevo</td>
+            </tr>
+            <tr>
+              <td>2025-10-25 14:20</td>
+              <td>María García</td>
+              <td><span class="badge bg-light text-dark border">Alumno</span></td>
+              <td>Se inscribió al sistema</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <div class="col-lg-4 mb-4">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center p-4">
-          <i class="bi bi-collection text-success" style="font-size: 3rem;"></i>
-          <h5 class="mt-3">Reporte de Grupos</h5>
-          <p class="text-muted">Grupos activos y asignaciones</p>
-          <button class="btn btn-success">
-            <i class="bi bi-download me-2"></i>Descargar
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 mb-4">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center p-4">
-          <i class="bi bi-graph-up text-info" style="font-size: 3rem;"></i>
-          <h5 class="mt-3">Reporte Estadístico</h5>
-          <p class="text-muted">Estadísticas generales del periodo</p>
-          <button class="btn btn-info">
-            <i class="bi bi-download me-2"></i>Descargar
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 mb-4">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center p-4">
-          <i class="bi bi-receipt text-warning" style="font-size: 3rem;"></i>
-          <h5 class="mt-3">Reporte de Comprobantes</h5>
-          <p class="text-muted">Comprobantes validados y pendientes</p>
-          <button class="btn btn-warning">
-            <i class="bi bi-download me-2"></i>Descargar
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 mb-4">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center p-4">
-          <i class="bi bi-file-earmark-check text-danger" style="font-size: 3rem;"></i>
-          <h5 class="mt-3">Reporte de Fichas</h5>
-          <p class="text-muted">Estado de fichas de registro</p>
-          <button class="btn btn-danger">
-            <i class="bi bi-download me-2"></i>Descargar
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 mb-4">
-      <div class="card border-0 shadow-sm h-100">
-        <div class="card-body text-center p-4">
-          <i class="bi bi-clipboard-data text-secondary" style="font-size: 3rem;"></i>
-          <h5 class="mt-3">Reporte Personalizado</h5>
-          <p class="text-muted">Configura tu propio reporte</p>
-          <button class="btn btn-secondary">
-            <i class="bi bi-gear me-2"></i>Configurar
-          </button>
-        </div>
-      </div>
-    </div>
   </div>
 
-  <!-- Historial de Reportes -->
-  <div class="row mt-4">
-    <div class="col-12">
-      <div class="card border-0 shadow-sm">
-        <div class="card-header bg-white">
-          <h5 class="mb-0">Historial de Reportes Generados</h5>
-        </div>
+  <div class="row g-4 mb-4">
+
+    <div class="col-lg-3 col-md-6">
+      <div class="card shadow-sm border-0">
         <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Reporte</th>
-                  <th>Fecha Generación</th>
-                  <th>Usuario</th>
-                  <th>Acción</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Reporte de Alumnos</td>
-                  <td>01/11/2025 14:30</td>
-                  <td>Admin Sistema</td>
-                  <td>
-                    <button class="btn btn-sm btn-outline-primary">
-                      <i class="bi bi-download"></i> Descargar
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Reporte Estadístico</td>
-                  <td>30/10/2025 10:00</td>
-                  <td>Director CELEX</td>
-                  <td>
-                    <button class="btn btn-sm btn-outline-primary">
-                      <i class="bi bi-download"></i> Descargar
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <p class="card-text">Total Alumnos Reportados</p>
+          <h3 class="fw-bold">4</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <p class="card-text">Documentos Validados</p>
+          <h3 class="fw-bold">2</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <p class="card-text">Grupos Activos</p>
+          <h3 class="fw-bold">3</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <p class="card-text">Acciones Registradas</p>
+          <h3 class="fw-bold">4</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center p-4">
+            <i class="bi bi-people-fill text-primary" style="font-size: 3rem;"></i>
+            <h5 class="mt-3">Reporte de Alumnos</h5>
+            <p class="text-muted">Lista completa de alumnos registrados</p>
+            <div class="d-flex justify-content-center gap-2">
+              <button class="btn btn-primary">
+                <i class="bi bi-file-earmark-pdf me-2"></i>Descargar PDF
+              </button>
+              <button class="btn btn-outline-secondary">
+                <i class="bi bi-file-earmark-excel me-2"></i>Descargar Excel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center p-4">
+            <i class="bi bi-collection text-success" style="font-size: 3rem;"></i>
+            <h5 class="mt-3">Reporte de Grupos</h5>
+            <p class="text-muted">Grupos activos y asignaciones</p>
+            <div class="d-flex justify-content-center gap-2">
+              <button class="btn btn-success">
+                <i class="bi bi-file-earmark-pdf me-2"></i>Descargar PDF
+              </button>
+              <button class="btn btn-outline-secondary">
+                <i class="bi bi-file-earmark-excel me-2"></i>Descargar Excel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center p-4">
+            <i class="bi bi-graph-up text-info" style="font-size: 3rem;"></i>
+            <h5 class="mt-3">Reporte Estadístico</h5>
+            <p class="text-muted">Estadísticas generales del periodo</p>
+            <div class="d-flex justify-content-center gap-2">
+              <button class="btn btn-info">
+                <i class="bi bi-file-earmark-pdf me-2"></i>Descargar PDF
+              </button>
+              <button class="btn btn-outline-secondary">
+                <i class="bi bi-file-earmark-excel me-2"></i>Descargar Excel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center p-4">
+            <i class="bi bi-receipt text-warning" style="font-size: 3rem;"></i>
+            <h5 class="mt-3">Reporte de Comprobantes</h5>
+            <p class="text-muted">Comprobantes validados y pendientes</p>
+            <div class="d-flex justify-content-center gap-2">
+              <button class="btn btn-warning">
+                <i class="bi bi-file-earmark-pdf me-2"></i>Descargar PDF
+              </button>
+              <button class="btn btn-outline-secondary">
+                <i class="bi bi-file-earmark-excel me-2"></i>Descargar Excel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center p-4">
+            <i class="bi bi-file-earmark-check text-danger" style="font-size: 3rem;"></i>
+            <h5 class="mt-3">Reporte de Fichas</h5>
+            <p class="text-muted">Estado de fichas de registro</p>
+            <div class="d-flex justify-content-center gap-2">
+              <button class="btn btn-danger">
+                <i class="bi bi-file-earmark-pdf me-2"></i>Descargar PDF
+              </button>
+              <button class="btn btn-outline-secondary">
+                <i class="bi bi-file-earmark-excel me-2"></i>Descargar Excel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center p-4">
+            <i class="bi bi-clipboard-data text-secondary" style="font-size: 3rem;"></i>
+            <h5 class="mt-3">Reporte Personalizado</h5>
+            <p class="text-muted">Configura tu propio reporte</p>
+            <button class="btn btn-secondary">
+              <i class="bi bi-gear me-2"></i>Configurar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Historial de Reportes -->
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-header bg-white">
+            <h5 class="mb-0">Historial de Reportes Generados</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Reporte</th>
+                    <th>Fecha Generación</th>
+                    <th>Usuario</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Reporte de Alumnos</td>
+                    <td>01/11/2025 14:30</td>
+                    <td>Admin Sistema</td>
+                    <td>
+                      <div class="d-flex gap-2">
+                        <button class="btn btn-sm btn-outline-primary">
+                          <i class="bi bi-file-earmark-pdf"></i> Descargar PDF
+                        </button>
+                        <button class="btn btn-sm btn-outline-secondary">
+                          <i class="bi bi-file-earmark-excel"></i> Descargar Excel
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Reporte Estadístico</td>
+                    <td>30/10/2025 10:00</td>
+                    <td>Director CELEX</td>
+                    <td>
+                      <div class="d-flex gap-2">
+                        <button class="btn btn-sm btn-outline-primary">
+                          <i class="bi bi-file-earmark-pdf"></i> Descargar PDF
+                        </button>
+                        <button class="btn btn-sm btn-outline-secondary">
+                          <i class="bi bi-file-earmark-excel"></i> Descargar Excel
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
