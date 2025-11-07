@@ -1,13 +1,13 @@
 <div class="container-fluid">
   <div class="row mb-4">
     <div class="col-12">
-      <h2 class="fw-bold">Registro de Ficha del Alumno</h2>
-      <p class="text-muted">Completa tu información para el registro</p>
+      <h2 class="fw-bold">Ficha de Registro</h2>
+      <p class="text-muted">Completa tu información personal</p>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-lg-8 mx-auto">
+    <div class="col-lg-10 mx-auto">
       <div class="card border-0 shadow-sm">
         <div class="card-body p-4">
           <form>
@@ -15,75 +15,216 @@
             <h5 class="mb-3 text-primary">
               <i class="bi bi-person me-2"></i>Datos Personales
             </h5>
-            
+
             <div class="row mb-3">
-              <div class="col-md-6">
+              <div class="col-md-4">
+                <label for="apellidoPaterno" class="form-label">Apellido Paterno</label>
+                <input type="text" class="form-control" id="apellidoPaterno" required>
+              </div>
+              <div class="col-md-4">
+                <label for="apellidoMaterno" class="form-label">Apellido Materno</label>
+                <input type="text" class="form-control" id="apellidoMaterno" required>
+              </div>
+              <div class="col-md-4">
                 <label for="nombre" class="form-label">Nombre(s)</label>
                 <input type="text" class="form-control" id="nombre" required>
               </div>
-              <div class="col-md-6">
-                <label for="apellidos" class="form-label">Apellidos</label>
-                <input type="text" class="form-control" id="apellidos" required>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-3">
+                <label for="sexo" class="form-label">Sexo</label>
+                <select class="form-select" id="sexo" required>
+                  <option value="">Selecciona...</option>
+                  <option value="F">Femenino</option>
+                  <option value="M">Masculino</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="curp" class="form-label">CURP</label>
+                <input type="text" class="form-control" id="curp" required>
+              </div>
+              <div class="col-md-5">
+                <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" id="fechaNacimiento" required>
               </div>
             </div>
 
             <div class="row mb-3">
               <div class="col-md-6">
-                <label for="numControl" class="form-label">Número de Control</label>
-                <input type="text" class="form-control" id="numControl" required>
+                <label for="calleNumero" class="form-label">Calle y Número</label>
+                <input type="text" class="form-control" id="calleNumero" required>
               </div>
               <div class="col-md-6">
+                <label for="colonia" class="form-label">Colonia</label>
+                <input type="text" class="form-control" id="colonia" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="municipio" class="form-label">Municipio/Alcaldía</label>
+                <input type="text" class="form-control" id="municipio" required>
+              </div>
+              <div class="col-md-4">
                 <label for="email" class="form-label">Correo Electrónico</label>
                 <input type="email" class="form-control" id="email" required>
               </div>
+              <div class="col-md-4">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" id="telefono" pattern="[0-9]{10}" required>
+              </div>
+              <div class="col-md-14">
+                <label for="escuelaProcedencia" class="form-label">Escuela de Procedencia</label>
+                <input type="text" class="form-control" id="escuelaProcedencia" required>
+              </div>
             </div>
 
-            <!-- Información Académica -->
+            <!-- Familiaridad -->
             <h5 class="mb-3 mt-4 text-primary">
-              <i class="bi bi-book me-2"></i>Información Académica
+              <i class="bi bi-people me-2"></i>Familiaridad
             </h5>
 
             <div class="row mb-3">
               <div class="col-md-6">
-                <label for="carrera" class="form-label">Carrera</label>
-                <select class="form-select" id="carrera" required>
-                  <option value="">Selecciona...</option>
-                  <option>Ingeniería en Sistemas</option>
-                  <option>Ingeniería Industrial</option>
-                  <option>Contador Público</option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <label for="semestre" class="form-label">Semestre</label>
-                <select class="form-select" id="semestre" required>
-                  <option value="">Selecciona...</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                </select>
+                <label class="form-label">¿Familiar que Trabaje en el IPN?</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="familiarIPN" id="familiarSi" value="si"
+                    [(ngModel)]="tieneFamiliar">
+                  <label class="form-check-label" for="familiarSi">Sí</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="familiarIPN" id="familiarNo" value="no"
+                    [(ngModel)]="tieneFamiliar">
+                  <label class="form-check-label" for="familiarNo">No</label>
+                </div>
               </div>
             </div>
 
-            <!-- Documentos -->
+            <div class="row mb-3" *ngIf="tieneFamiliar === 'si'">
+              <div class="col-md-6" *ngIf="tieneFamiliar === 'si'">
+                <label for="parentesco" class="form-label">Parentesco con el Alumno</label>
+                <input type="text" class="form-control" id="parentesco">
+              </div>
+              <div class="col-md-6">
+                <label for="nombreTrabajador" class="form-label">Nombre del trabajador(a) del IPN</label>
+                <input type="text" class="form-control" id="nombreTrabajador">
+              </div>
+              <div class="col-md-6">
+                <label for="unidadAdscripcion" class="form-label">Unidad de Adscripción del Trabajador</label>
+                <input type="text" class="form-control" id="unidadAdscripcion">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label class="form-label">¿Solicitó beca para el curso?</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="solicitudBeca" id="becaSi" value="si">
+                  <label class="form-check-label" for="becaSi">Sí</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="solicitudBeca" id="becaNo" value="no">
+                  <label class="form-check-label" for="becaNo">No</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Datos de Emergencia -->
             <h5 class="mb-3 mt-4 text-primary">
-              <i class="bi bi-file-earmark-arrow-up me-2"></i>Documentos
+              <i class="bi bi-exclamation-triangle me-2"></i>Datos de Emergencia y Necesidades Especiales
             </h5>
 
-            <div class="mb-3">
-              <label for="documento" class="form-label">Subir Documentos (PDF)</label>
-              <input type="file" class="form-control" id="documento" accept=".pdf" multiple>
-              <small class="text-muted">Tamaño máximo: 5MB por archivo</small>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="contactoEmergencia" class="form-label">En caso de emergencia comunicarse con:</label>
+                <input type="text" class="form-control" id="contactoEmergencia" required>
+              </div>
+              <div class="col-md-6">
+                <label for="telefonoEmergencia" class="form-label">Al teléfono</label>
+                <input type="tel" class="form-control" id="telefonoEmergencia" pattern="[0-9]{10}" required>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <label class="form-label">¿El alumno padece alguna enfermedad, alergia o necesidad especial
+                  (física-motriz)?</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="padecimiento" id="padecimientoSi" value="si"
+                    [(ngModel)]="tienePadecimiento">
+                  <label class="form-check-label" for="padecimientoSi">Sí</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="padecimiento" id="padecimientoNo" value="no"
+                    [(ngModel)]="tienePadecimiento">
+                  <label class="form-check-label" for="padecimientoNo">No</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-3" *ngIf="tienePadecimiento === 'si'">
+              <div class="col-md-12">
+                <label for="medicamento" class="form-label">¿Con qué medicamento se controla su padecimiento?</label>
+                <textarea class="form-control" id="medicamento" rows="3"
+                  placeholder="Describa el medicamento y la dosis"></textarea>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <h5 class="fw-bold mb-1">Documentos Personales</h5>
+              <p class="text-muted small">Carga los documentos requeridos para completar tu inscripción</p>
+
+              <div class="mb-4">
+                <label class="form-label fw-bold mb-2">CURP del Alumno</label>
+
+                <div class="custom-file-uploader d-flex justify-content-between align-items-center p-3 rounded">
+                  <div class="d-flex align-items-center text-muted">
+                    <i class="bi bi-file-earmark-text fs-4 me-3"></i>
+                    <span id="curp-file-text">{{ curpFileName }}</span>
+                  </div>
+                  <div>
+                    <input type="file" id="curp-input" class="d-none" accept=".pdf, .jpg, .jpeg, .png"
+                      (change)="onFileChange($event, 'curp')">
+                    <label for="curp-input" class="btn btn-outline-secondary btn-sm d-flex align-items-center">
+                      <i class="bi bi-upload me-2"></i> Seleccionar
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label fw-bold mb-1">Identificación Oficial (INE)</label>
+                <p class="text-muted small mb-2">INE del alumno o, si es menor de edad, INE de padre, madre o tutor</p>
+
+                <div class="custom-file-uploader d-flex justify-content-between align-items-center p-3 rounded">
+                  <div class="d-flex align-items-center text-muted">
+                    <i class="bi bi-file-earmark-text fs-4 me-3"></i>
+                    <span id="ine-file-text">{{ ineFileName }}</span>
+                  </div>
+                  <div>
+                    <input type="file" id="ine-input" class="d-none" accept=".pdf, .jpg, .jpeg, .png"
+                      (change)="onFileChange($event, 'ine')">
+                    <label for="ine-input" class="btn btn-outline-secondary btn-sm d-flex align-items-center">
+                      <i class="bi bi-upload me-2"></i> Seleccionar
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <small class="text-muted d-block">Formatos aceptados: PDF, JPG, PNG</small>
+                <small class="text-muted d-block">Tamaño máximo por archivo: 5 MB</small>
+              </div>
             </div>
 
             <div class="d-flex justify-content-end gap-2 mt-4">
               <button type="button" class="btn btn-secondary">Cancelar</button>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" class="btn btn-primary" (click)="onSubmit()">
                 <i class="bi bi-save me-2"></i>Guardar Ficha
               </button>
             </div>
+            
           </form>
         </div>
       </div>
